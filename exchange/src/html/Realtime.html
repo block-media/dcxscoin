@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CoinDepot - Realtme Tracking</title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.default-v2.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/jszip.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
+</head>
+
+<body>   
+    <div id="drawer">
+        <div id="drawer-content">
+            <div>
+                <div id="example" style="background-color: lavender;">
+                    <div class="demo-section k-content wide hidden-on-narrow">
+                        <img class="logo-light logo-img" src="./Images/logo-dark-small.png" srcset="./images/logo2x.png 2x" alt="logo">
+                        <h5 class="example-title">Coin<span>Depot</span></h5>
+                        <h6 class="example-description">Real-Time Postion Tracking</h6>
+                        <dt class="example-description"></dt>
+                        </div> 
+                            <dl class="stat first">
+                                <dt class="example-subtitle">
+                                    ETHEREUM/BYBIT <span class="badge bg-primary">78,053,288</span>
+                                    <span class="metric">USDT/THETHER</span>
+                                </dt>
+                                <dd class="eoy-closing">$3,189.56</dd>
+                                
+                            </dl>
+                
+                            <div class="company-trends">
+                                <div class="example-subtitle">
+                                    Highest Price 24h
+                                    <span class="highest">$3,150.56 <span class="badge bg-success">6.87%</span></span>
+                                </div>
+                
+                                <dl class="stat trend-container highest-container">
+                                    <dt class="example-subtitle">Low price 24h</dt>
+                                    <dd class="lowest">$3,289.56</dd>
+                                    <dd class="sparkline highest-sparkline"></dd>
+                                </dl>
+                
+                                <dl class="stat trend-container lowest-container">
+                                    <dt class="example-subtitle">Prev. Price 1H</dt>
+                                    <dd class="relative-value">$3,089.56</dd>
+                                    <dd class="sparkline lowest-sparkline"></dd>
+                                </dl>
+                
+                                <dl class="stat trend-container">
+                                    <dt class="example-subtitle">Prev. Price 1H</dt>
+                                    <dd class="relative-value">$3,150.56</dd>
+                                    <dd class="sparkline relative-value-sparkline"><span class="badge bg-success">5.99%</span> </dd>
+                                </dl>
+                                <dl class="stat trend-container">
+                                    <dt class="example-subtitle">Total Margin</dt>
+                                    <dd class="relative-value"></dd>
+                                    <dd class="sparkline relative-value-sparkline">$4,234,432.56</dd>
+                                </dl>
+                                
+                                <dl class="stat trend-container">
+                                    <dt class="example-subtitle">Total Value</dt>
+                                    <dd class="relative-value"></dd>
+                                    <dd class="sparkline relative-value-sparkline">$104,234,432.56</dd>
+                                </dl>
+                                
+                                <dl class="stat trend-container">
+                                    <dt class="example-subtitle">Realized PNL</dt>
+                                    <dd class="relative-value"></dd>
+                                    <dd class="sparkline relative-value-sparkline">$3,150.56</dd>
+                                </dl>
+                                
+                                <dl class="stat trend-container">
+                                    <dt class="example-subtitle">Urealized PNL</dt>
+                                    <dd class="relative-value"></dd>
+                                    <dd class="sparkline relative-value-sparkline">$3,150.56</dd>
+                                </dl>
+                                                               
+                                <dl class="stat trend-container">
+                                    <dt class="example-subtitle">
+                                        <div class="input-group mb-3">                                        
+                                        <div class="input-group-prepend"> <span class="input-group-text">TP$</span> </div>
+                                        <input type="text" class="form-control" id="full-name">
+                                    </div> </dt>
+                                    <dd class="relative-value"></dd>
+                                    <dd class="sparkline relative-value-sparkline"></dd>
+                                </dl>
+                                
+                                <dl class="stat trend-container">
+                                    <dt class="example-subtitle"><div class="input-group mb-3">                                        
+                                        <div class="input-group-prepend"> <span class="input-group-text">SL$</span> </div>
+                                        <input type="text" class="form-control" id="full-name">
+                                    </div> </dt>
+                                    <dd class="relative-value"></dd>
+                                    <dd class="sparkline relative-value-sparkline"></dd>
+                                </dl>
+                                
+                                <dl class="stat trend-container">
+                                    <button type="button" class="btn btn-primary">Set TP - SL</button>
+                                    <dd class="relative-value"></dd>
+                                    
+                                </dl>
+                                
+                        
+                </div>
+                        
+                <style>
+                    .demo-section {
+                        padding: 20px 25px;
+                        margin: 0 auto;
+                    }
+                
+                    .example-title,
+                    .example-subtitle,
+                    .metric,
+                    .example-description,
+                    .stat dd {
+                        font-family: 'Open Sans Condensed', Verdana, sans-serif;
+                    }
+                
+                    .example-title,
+                    .example-subtitle {
+                        text-transform: uppercase;
+                    }
+                
+                    .example-title {
+                        color: #2b8abe;
+                        font-size: 24px;
+                        font-weight: 300;
+                    }
+                
+                    .example-title span,
+                    .first dd {
+                        font-weight: 700;
+                    }
+                
+                    .example-description {
+                        font-size: 18px;
+                        font-weight: 300;
+                        color: #1a364a;
+                    }
+                
+                    .example-subtitle {
+                        font-size: 13px;
+                        font-weight: 700;
+                        margin-bottom: 0;
+                    }
+                
+                    .metric {
+                        display: block;
+                        text-transform: none;
+                        font-weight: 300;
+                        font-size: 12px;
+                        color: #727f8e;
+                        margin: 0;
+                    }
+                
+                    .example-title,
+                    .example-description {
+                        display: inline-block;
+                        margin: 0;
+                    }
+                
+                    #chart-type-chooser {
+                        float: right;
+                        margin-right: .2%;
+                        width: 170px;
+                        text-align: right;
+                        line-height: 32px;
+                        margin-top: -30px;
+                    }
+                
+                    .radio-group-label {
+                        margin-right: 12px;
+                        color: #727f8e;
+                    }
+                
+                    .radio-group {
+                        margin: 0;
+                        padding: 0;
+                        list-style-type: none;
+                        display: inline-block;
+                        vertical-align: top;
+                    }
+                
+                    .radio-group > li {
+                        display: inline-block;
+                        *display: inline;
+                        zoom: 1;
+                    }
+                
+                    .radio-group label {
+                        width: 32px;
+                        height: 32px;
+                        background: #b3bbc5 no-repeat center center;
+                        display: inline-block;
+                        border-radius: 16px;
+                        overflow: hidden;
+                        font: 0/0;
+                        color: transparent;
+                    }
+                
+                    .radio-group input {
+                        display: none;
+                    }
+                
+                    .radio-group input:checked+label {
+                        background-color: #2b8abe;
+                    }
+                
+                    .radio-group label[for="chart-type-area"],
+                    .radio-group label[htmlFor="chart-type-area"] {
+                        background-image: url("../content/dataviz/dashboards/area-chart.png");
+                    }
+                
+                    .radio-group label[for="chart-type-line"],
+                    .radio-group label[htmlFor="chart-type-line"] {
+                        background-image: url("../content/dataviz/dashboards/line-chart.png");
+                    }
+                
+                    .stat .eoy-closing {
+                        font-size: 40px;
+                        line-height: 1em;
+                        letter-spacing: -2px;
+                        text-indent: -8px;
+                        color: #454447;
+                    }
+                
+                    .stat .volume {
+                        font-size: 72px;
+                        color: #454447;
+                    }
+                
+                    .filtering-tabs {
+                        border: 0;
+                        background: none;
+                    }
+                
+                    .filtering-tabs .k-tabstrip-items {
+                        padding: 0;
+                    }
+                
+                    .filtering-tabs .k-item {
+                        width: 19.8%;
+                        border: 0;
+                        margin: 0 .2% 0 0;
+                        padding: 0 0 4px;
+                        text-align: center;
+                        cursor: pointer;
+                        background: none;
+                        border-bottom: 4px solid #b3bbc5;
+                        font: 16px/2em Arial,sans-serif;
+                        color: #727f8e;
+                    }
+                
+                    .filtering-tabs .k-state-hover {
+                        color: #2e2e2e;
+                        background: none;
+                    }
+                
+                    .filtering-tabs .k-state-active {
+                        padding: 0;
+                        color: #2b8abe;
+                        border-bottom: 8px solid #2b8abe;
+                    }
+                
+                    .filtering-tabs .k-link {
+                        padding: 0;
+                    }
+                
+                    #yearly-stock-prices {
+                        height: 200px;
+                        margin-top: 20px;
+                        clear: both;
+                    }
+                
+                    #company-filtering-tabs .k-item {
+                        width: 32.8%;
+                        margin: 4px .5% 0 0;
+                    }
+                
+                    .stat dd {
+                        margin: 0;
+                    }
+                
+                    .stat,
+                    .relative-value-pie,
+                    .company-trends {
+                        margin: 1em 0 0;
+                        display: inline-block;
+                        *display: inline;
+                        zoom: 1;
+                        vertical-align: top;
+                    }
+                
+                    .company-trends {
+                        margin-left: 27px;
+                    }
+                
+                    .trend-container {
+                        background: transparent none no-repeat 100% 29px;
+                        width: 120px;
+                        margin-right: 27px;
+                    }
+                
+                    .lowest-container {
+                        background: transparent url("../content/dataviz/dashboards/lowest.png") no-repeat 100% 37px;
+                    }
+                
+                    .highest-container {
+                        background: transparent url("../content/dataviz/dashboards/highest.png") no-repeat 100% 29px;
+                    }
+                
+                    dd.highest,
+                    dd.lowest,
+                    dd.relative-value {
+                        margin: 0;
+                        font-size: 16px;
+                        font-weight: 700;
+                    }
+                
+                    .lowest {
+                        color: #cd151e;
+                    }
+                
+                    .highest {
+                        color: #639514;
+                    }
+                
+                    .relative-value {
+                        color: #4da3d5;
+                    }
+                
+                    dd.sparkline {
+                        height: 40px;
+                        width: 120px;
+                        margin-top: -5px;
+                    }
+                
+                    .separator {
+                        height: 1px;
+                        background: #b3bbc5;
+                    }
+                
+                    .relative-value-pie {
+                        width: 110px;
+                        height: 100px;
+                        margin-left: -10px;
+                    }
+                
+                    .volume-chart {
+                        display: inline-block;
+                        *display: inline;
+                        zoom: 1;
+                        width: 615px;
+                        height: 136px;
+                        vertical-align: top;
+                        margin: 1.2em 0 0 4em;
+                    }
+                
+                    #example {
+                        width: auto;
+                        background: none;
+                        color: #454447;
+                    }
+                </style> 
+            </div>
+            <main></main>
+        </div>
+    </div>
+    <div id="grid2"></div>
+
+    <script>
+
+        
+
+        $(document).ready(function(){
+            $("#grid2").kendoGrid({
+                height: 800,
+                    selectable: "multiple",
+                    sortable: true,
+                    reorderable: true,
+                    groupable: true,
+                    resizable: true,
+                    filterable: true,
+                    columnMenu: true,
+                    pageable: false,
+                    toolbar: ["search"],
+                search: {
+                    fields: [
+                        { name: "AccName", operator: "eq" },
+                    ]
+                },
+                columns: [  { 
+                    selectable: true,
+                    locked: true,
+                    lockable: false,
+                    width: "40px" },
+                            {
+                            field: "AccName",
+                            title: "Acc. Name",
+                            locked: true,
+                            width: 200
+                        },{
+                            field: "OwnerName",
+                            title: "Owner Name",
+                            locked: true,
+                            width: 150
+                        },{
+                            field: "Exchange",
+                            title: "Exchange",
+                            locked: true,
+                            width: 150
+                        },{
+                            field: "Symbol",
+                            title: "Symbol",
+                            width: 100
+                        },{
+                            field: "Side",
+                            title: "Side",
+                            width: 80
+                        },{
+                            field: "Margen",
+                            title: "Margen",
+                            width: 100
+                        }, {
+                            field: "Qty",
+                            title: "Qty",
+                            width: 100
+                        },{
+                            field: "Leverage",
+                            title: "Leverage",
+                            width: 100
+                        }, {
+                            field: "EntryPrice",
+                            title: "Entry Price",
+                            width: 150
+                        },{
+                            field: "LiqPrice",
+                            title: "Liq. Price",
+                            width: 150
+                        },{
+                            field: "UnrealizedPNL",
+                            title: "Unrealized PNL",
+                            width: 150
+                        },{
+                            field: "RealizedPNL",
+                            title: "Realized PNL",
+                            width: 150
+                        },{
+                            field: "WalletBalance",
+                            title: "Wallet Balance",
+                            width: 150
+                        },{
+                            field: "TakeProfit",
+                            title: "Take Profit",
+                            width: 150
+                        },{
+                            field: "StopLoss",
+                            title: "Stop Loss",
+                            width: 150
+                        },{ 
+                        command: ["TP/SL", "Close Market"], 
+                        title: "&nbsp;",
+                        width: "250px" }
+                    ],
+                dataSource: {
+                    data: [{
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Domis Vargas",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Isabel Lugo",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Domingo Vargas",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Doisa Vargas",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Dominic vargas",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "isaac vargas",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Montserrat Vargas",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Valentina Herrera",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Isabel Lugo",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Isabel Lugo",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Isabel Lugo",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    },
+                    {
+                        AccName: "isamanetsrl_CoinDepot",
+                        OwnerName: "Isabel Lugo",
+                        Exchange: "Bybit",
+                        Symbol: "ETHUSDT",
+                        Side: "Buy",
+                        Margen: "15.00",
+                        Qty: "23",
+                        Leverage: "10x",
+                        EntryPrice: "$12,000.00",
+                        LiqPrice: "$12,000.00",
+                        UnrealizedPNL: "$12,000.00",
+                        RealizedPNL: "$12,000.00",
+                        WalletBalance: "$12,000.00",
+                        TakeProfit: "$12,000.00",
+                        StopLoss: "$12,000.00"
+                    }]
+                }
+            });
+        });
+
+    </script>
+      <!-- OPEN POSITION GRID END -->
+</body>
+
+</html>

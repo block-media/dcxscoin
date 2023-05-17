@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+
+<head>
+    <base href="../">
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@@page-discription">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <!-- Page Title  -->
+    <title>CoinDepot - Admin</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="./assets/css/dashlite.css?ver=2.2.0">
+    <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=2.2.0">
+    <link rel="stylesheet" href="/assets/css/valid-form.css">
+    <!-- KENDO StyleSheets  -->
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/default.mobile.min.css" rel="stylesheet" />
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
+    <!--<script src="https://kendo.cdn.telerik.com/2022.1.119/js/messages/kendo.messages.fr-FR.min.js"></script>-->
+
+    <!-- KENDO StyleSheets END -->
+
+</head>
+
+<body class="nk-body npc-covid has-sidebar has-sidebar-short ui-clean ui-rounder">
+    <div class="nk-app-root">
+        <!-- main @s -->
+        <div class="nk-main ">
+            <!-- sidebar @s -->
+            <div class="nk-sidebar nk-sidebar-short nk-sidebar-fixed is-light" data-content="sidebarMenu">
+                <div class="nk-sidebar-element nk-sidebar-head">
+                    <div class="nk-sidebar-brand">
+                        <a href="./index.html" class="logo-link nk-sidebar-logo">
+                            <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x"
+                                alt="logo">
+                            <img class="logo-dark logo-img" src="./images/logo-dark.png"
+                                srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                        </a>
+                        <a href="./index.html" class="logo-link nk-sidebar-logo-small">
+                            <img class="logo-light logo-img" src="./images/logo-small.png"
+                                srcset="./images/logo-small2x.png 2x" alt="logo">
+                            <img class="logo-dark logo-img" src="./images/logo-dark-small.png"
+                                srcset="./images/logo-dark-small2x.png 2x" alt="logo-dark">
+                        </a>
+                    </div>
+                    <div class="nk-menu-trigger mr-n2">
+                        <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em
+                                class="icon ni ni-arrow-left"></em></a>
+                    </div>
+                </div><!-- .nk-sidebar-element -->
+                <div class="nk-sidebar-element">
+                    <div class="nk-sidebar-body" data-simplebar>
+                        <div class="nk-sidebar-content">
+                            <div class="nk-sidebar-menu nk-sidebar-menu-middle">
+                                <!-- Menu -->
+                                <ul class="nk-menu short-menu">
+                                    <li class="nk-menu-item">
+                                        <a href="html/index.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-notify"></em></span>
+                                            <span class="nk-menu-text">Overview</span>
+                                            <span class="nk-menu-tooltip" title="Home"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="html/orders.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-globe"></em></span>
+                                            <span class="nk-menu-text">Orders</span>
+                                            <span class="nk-menu-tooltip" title="Orders"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="html/PositionTrack.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-sun"></em></span>
+                                            <span class="nk-menu-text">Position Tracker</span>
+                                            <span class="nk-menu-tooltip" title="Position Tracker"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-security"></em></span>
+                                            <span class="nk-menu-text">Bank</span>
+                                            <span class="nk-menu-tooltip" title="Bank"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="html/faqs.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-help"></em></span>
+                                            <span class="nk-menu-text">FAQs</span>
+                                            <span class="nk-menu-tooltip" title="FAQs"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="html/admin.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-layers"></em></span>
+                                            <span class="nk-menu-text">Admin</span>
+                                            <span class="nk-menu-tooltip" title="Admin"></span>
+                                        </a>
+                                    </li>
+                                </ul><!-- .nk-menu -->
+                            </div><!-- .nk-sidebar-menu -->
+                            <div class="nk-sidebar-footer d-none d-md-block">
+                                <ul class="nk-menu short-menu">
+                                    <li class="nk-menu-item">
+                                        <a href="#" data-toggle="modal" data-target="#covid-feedback"
+                                            class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-chat-fill"></em></span>
+                                            <span class="nk-menu-text">Feedback</span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
+                                        <a href="#" data-toggle="modal" data-target="#covid-about" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-info-fill"></em></span>
+                                            <span class="nk-menu-text">About Data</span>
+                                        </a>
+                                    </li>
+                                </ul><!-- .nk-menu -->
+                            </div><!-- .nk-sidebar-footer -->
+                        </div><!-- .nk-sidebar-contnet -->
+                    </div><!-- .nk-sidebar-body -->
+                </div><!-- .nk-sidebar-element -->
+            </div>
+            <!-- sidebar @e -->
+            <!-- wrap @s -->
+            <div class="nk-wrap ">
+                <!-- main header @s -->
+                <div class="nk-header nk-header-fluid nk-header-fixed nk-header-onlymobile is-light">
+                    <div class="container-fluid">
+                        <div class="nk-header-wrap">
+                            <div class="nk-header-brand">
+                                <a href="index.html" class="logo-link">
+                                    <img class="logo-light logo-img" src="./images/logo.png"
+                                        srcset="./images/logo2x.png 2x" alt="logo">
+                                    <img class="logo-dark logo-img" src="./images/logo-dark.png"
+                                        srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                                </a>
+                            </div>
+                            <div class="nk-menu-trigger ml-auto mr-n1">
+                                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
+                                        class="icon ni ni-menu"></em></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- main header @e -->
+                <!-- content @s -->
+                <div class="nk-content ">
+                    <div class="container-fluid">
+                        <div class="nk-content-body">
+                            <div class="nk-block-head nk-block-head-sm">
+                                <div class="nk-block-between flex-wrap g-1 align-start">
+                                    <div class="nk-block-head-content">
+                                        <h5 class="nk-block-title">Users CoinDepot</h5>
+                                        <p>Real-Time users CoinDepot</p>
+                                    </div>
+                                    <div class="nk-block-head-content">
+                                        <p class="note-text">Updated: March 27, 2020 12:30 (GMT +6)</p>
+                                    </div>
+                                </div>
+                            </div><!-- .nk-block-head -->
+                            <div class="nk-block">
+                                <div class="row g-gs">
+                                    <div class="col-xl-8">
+                                        <div class="card card-bordered nk-cov-wg8">
+                                            <div class="card-inner">
+                                                <!-- OPEN POSITION GRID START -->
+                                                <div class="demo-section k-content">
+                                                    <div id="tabstrip">
+                                                        <ul>
+                                                            <li class="k-state-active">
+                                                                Users
+                                                            </li>
+                                                            <li>
+                                                                Account
+                                                            </li>
+                                                            <li>
+                                                                Exchanges
+                                                            </li>
+                                                            <li>
+                                                                Groups
+                                                            </li>
+                                                        </ul>
+                                                        <div>
+                                                            <!-- OPEN POSITION GRID START -->
+                                                            
+                                                            <!-- OPEN POSITION GRID END -->
+                                                        </div>
+                                                        <div>
+                                                            <table style="width: 100%;" border="1" role="grid"
+                                                                tabindex="-1">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Account</th>
+                                                                        <th>Owner</th>
+                                                                        <th>Exchange</th>
+                                                                        <th>User</th>
+                                                                        <th>Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="accounts-table">
+
+                                                                </tbody>
+                                                            </table>
+                                                            <span class="sunny">&nbsp;</span>
+                                                            <div class="weather">
+                                                                <h2>29<span>&ordm;C</span></h2>
+                                                                <p>Sunny weather in New York.</p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="sunny">&nbsp;</span>
+                                                            <div class="weather">
+                                                                <h2>21<span>&ordm;C</span></h2>
+                                                                <p>Sunny weather in London.</p>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <span class="cloudy">&nbsp;</span>
+                                                            <div class="weather">
+                                                                <h2>16<span>&ordm;C</span></h2>
+                                                                <p>Cloudy weather in Moscow.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <style>
+                                                    .sunny,
+                                                    .cloudy,
+                                                    .rainy {
+                                                        display: block;
+                                                        margin: 30px auto 10px;
+                                                        width: 100%;
+                                                        height: 350px;
+                                                        background: url('../content/web/tabstrip/weather.png') transparent no-repeat 0 0;
+                                                    }
+
+                                                    .cloudy {
+                                                        background-position: -128px 0;
+                                                    }
+
+                                                    .rainy {
+                                                        background-position: -256px 0;
+                                                    }
+
+                                                    .weather {
+                                                        margin: 0 auto 30px;
+                                                        text-align: center;
+                                                    }
+
+                                                    #tabstrip h2 {
+                                                        font-weight: lighter;
+                                                        font-size: 5em;
+                                                        line-height: 1;
+                                                        padding: 0 0 0 30px;
+                                                        margin: 0;
+                                                    }
+
+                                                    #tabstrip h2 span {
+                                                        background: none;
+                                                        padding-left: 5px;
+                                                        font-size: .3em;
+                                                        vertical-align: top;
+                                                    }
+
+                                                    #tabstrip p {
+                                                        margin: 0;
+                                                        padding: 0;
+                                                    }
+                                                </style>
+
+                                                <script>
+                                                    $(document).ready(function () {
+                                                        $("#tabstrip").kendoTabStrip({
+                                                            animation: {
+                                                                open: {
+                                                                    effects: "fadeIn"
+                                                                }
+                                                            }
+                                                        });
+                                                    });
+                                                </script>
+
+                                                <!-- OPEN POSITION USER END -->
+                                            </div><!-- .card-inner -->
+
+                                            <!-- .card-inner -->
+                                        </div><!-- .card -->
+                                        <!-- ACCOUNT .card-inner -->
+                                        <div class="card card-bordered nk-cov-wg8">
+                                            <div class="card-inner">
+                                                <!-- ACCOUNT GRID START -->
+
+                                                <!-- ACCOUNTEND -->
+                                            </div><!-- .card-inner -->
+
+                                            <!-- .card-inner -->
+                                        </div><!-- ACCOUNT .card -->
+                                        <!-- EXCHANGE .card-inner -->
+                                        <div class="card card-bordered nk-cov-wg8">
+                                            <div class="card-inner">
+                                                <!-- EXCHANGE GRID START -->
+
+                                                <!-- EXCHANGE END -->
+                                            </div><!-- .card-inner -->
+
+                                            <!-- .card-inner -->
+                                        </div><!-- ACCOUNT .card -->
+                                    </div><!-- .col -->
+                                    <form id="create-user-form" class="col-xl-4 __form">
+                                        <div class="row g-gs">
+                                            <div class="col-xl-12 d-none col-lg-6">
+                                                <div class="card card-bordered card-full">
+                                                    <div class="card-inner">
+                                                        <div class="card-title-group mb-4">
+                                                            <div class="card-title">
+                                                                <h6 class="title">Create New User</h6>
+                                                                <p>Create User Into CoinDepot</p>
+                                                            </div>
+                                                            <div class="card-tools">
+                                                                <a class="btn btn-sm btn-outline-light btn-white"><span>Add</span>
+                                                                    <e class="icon ni ni-plus"></e>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nk-cov-wg6">
+                                                            <div class="crypt-sell">
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Name</span> </div>
+                                                                    <input type="text" class="form-control"
+                                                                        id="default-01" placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Name</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Last</span> </div>
+                                                                    <input type="text" class="form-control"
+                                                                        id="default-02" placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Last</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Email</span> </div>
+                                                                    <input type="text" class="form-control"
+                                                                        id="default-03" placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Email</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Pswd</span> </div>
+                                                                    <input type="text" class="form-control"
+                                                                        id="default-04" placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Pswd</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Country</span>
+                                                                    </div>
+                                                                    <select class="form-control" id="default-06">
+                                                                        <option value="default_option">Select Contract
+                                                                        </option>
+                                                                        <option value="Market">USA</option>
+                                                                        <option value="Limit">DR</option>
+                                                                    </select>
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Country</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Phone</span> </div>
+                                                                    <input type="text" class="form-control"
+                                                                        id="default-01" placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Phone</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Group ID</span>
+                                                                    </div>
+                                                                    <select class="form-control" id="default-06">
+                                                                        <option value="default_option">Select Contract
+                                                                        </option>
+                                                                        <option value="Market">USA</option>
+                                                                        <option value="Limit">Dominican Republic
+                                                                        </option>
+                                                                    </select>
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Group ID</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Level</span> </div>
+                                                                    <select class="form-control" id="default-06">
+                                                                        <option value="default_option">Select Contract
+                                                                        </option>
+                                                                        <option value="Market">Advisors</option>
+                                                                        <option value="Limit">User</option>
+                                                                    </select>
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Level</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Status</span>
+                                                                    </div>
+                                                                    <ul
+                                                                        class="custom-control-group g-3 align-center flex-wrap">
+                                                                        <li>
+                                                                            <div class="custom-control custom-radio">
+                                                                                <p> </p>
+                                                                                <input type="radio"
+                                                                                    class="custom-control-input"
+                                                                                    name="reg-public" id="reg-disable">
+                                                                                <label class="custom-control-label"
+                                                                                    for="reg-disable">50%</label>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="custom-control custom-radio">
+                                                                                <input type="radio"
+                                                                                    class="custom-control-input"
+                                                                                    name="reg-public" id="reg-request">
+                                                                                <label class="custom-control-label"
+                                                                                    for="reg-request">100%</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="text-center mt-3 mb-3 crypt-down">
+                                                                    <p>System Response:</p>
+                                                                    <h4> User Created</h4>
+                                                                </div>
+                                                                <div>
+                                                                    <table style="width: 100%" ; text-align: center>
+                                                                        <tr>
+                                                                            <td> <a href="#"
+                                                                                    class="btn btn-xl btn-success"
+                                                                                    style="width: 100%">Create New
+                                                                                    User</a></td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- .col -->
+                                            <div class="col-xl-12 col-lg-6">
+                                                <div class="card card-bordered card-full">
+                                                    <div class="card-inner">
+                                                        <div class="card-title-group mb-4">
+                                                            <div class="card-title">
+                                                                <h6 class="title">Create New Trading Account</h6>
+                                                                <p>Account will be added to User in order o identify the
+                                                                    owner.</p>
+                                                            </div>
+                                                            <div class="card-tools">
+                                                                <a class="btn btn-sm btn-outline-light btn-white"><span>Add</span>
+                                                                    <e class="icon ni ni-plus"></e>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nk-cov-wg6">
+                                                            <div class="crypt-sell">
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Account</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        id="default-01" name="account"
+                                                                        placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Name</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text"
+                                                                            name="owner">Owner</span> </div>
+                                                                    <input name="owner" type="text"
+                                                                        placeholder="Input placeholder"
+                                                                        class="form-control" />
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Name</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Exchange</span>
+                                                                    </div>
+                                                                    <select name="exchange" class="form-control"
+                                                                        id="default-06">
+                                                                        <option selected value="Market">Bybit</option>
+                                                                        <option value="Limit">BINANCE</option>
+                                                                    </select>
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Name</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">User</span> </div>
+                                                                    <input name="username" type="text"
+                                                                        class="form-control" id="default-04"
+                                                                        placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Name</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">User</span> </div>
+                                                                    <input name="password" type="text"
+                                                                        class="form-control" id="default-04"
+                                                                        placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Password</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Recovery</span>
+                                                                    </div>
+                                                                    <input name="recovery" type="text"
+                                                                        class="form-control" id="default-01"
+                                                                        placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Key</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">2FA</span> </div>
+                                                                    <select name="fa2" class="form-control"
+                                                                        id="default-06">
+                                                                        <option value="Market">Yes</option>
+                                                                        <option value="Limit" selected>No</option>
+                                                                    </select>
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">Enable</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">API</span> </div>
+                                                                    <input type="text" name="api" class="form-control"
+                                                                        id="default-01" placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">KEY</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Secret</span>
+                                                                    </div>
+                                                                    <input type="text" name="secret"
+                                                                        class="form-control" id="default-01"
+                                                                        placeholder="Input placeholder">
+                                                                    <div class="input-group-append"> <span
+                                                                            class="input-group-text">KEY</span> </div>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend"> <span
+                                                                            class="input-group-text">Status</span>
+                                                                    </div>
+                                                                    <ul
+                                                                        class="custom-control-group g-3 align-center flex-wrap">
+                                                                        <li>
+                                                                            <div class="custom-control custom-radio">
+                                                                                <p> </p>
+                                                                                <input name="status" value="active"
+                                                                                    type="radio"
+                                                                                    class="custom-control-input"
+                                                                                    name="reg-public"
+                                                                                    id="reg-disable-2">
+                                                                                <label class="custom-control-label"
+                                                                                    for="reg-disable-2">Yes</label>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                            <div class="custom-control custom-radio">
+                                                                                <input name="status" value="inactive"
+                                                                                    type="radio"
+                                                                                    class="custom-control-input"
+                                                                                    name="reg-public"
+                                                                                    id="reg-request-2">
+                                                                                <label class="custom-control-label"
+                                                                                    for="reg-request-2">No</label>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="text-center mt-3 mb-3 crypt-down">
+                                                                    <p>System Response:</p>
+                                                                    <h6> Account Created</h6>
+                                                                </div>
+                                                                <div>
+                                                                    <table style="width: 100%" ; text-align: center>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <button class="btn btn-xl btn-success"
+                                                                                    style="width: 100%">Create New
+                                                                                    Account</button>
+                                                                                <div class="spinner-border"
+                                                                                    role="status">
+                                                                                    <span
+                                                                                        class="sr-only">Loading...</span>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- .col -->
+                                            <div class="col-xl-12">
+                                                <div class="card card-bordered card-full">
+                                                    <div class="card-inner">
+                                                        <div class="card-title-group mb-4">
+                                                            <div class="card-title">
+                                                                <h6 class="title">Create Wallet</h6>
+                                                                <p>Add the Wallets for each User</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nk-cov-wg7">
+
+                                                        </div><!-- .nk-cov-wg7 -->
+                                                    </div><!-- .card-inner -->
+                                                </div><!-- .card -->
+                                            </div><!-- .col -->
+                                        </div><!-- .row -->
+                                    </form><!-- .col -->
+                                </div><!-- .row -->
+                            </div><!-- .nk-block -->
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <!-- footer @s -->
+                <div class="nk-footer d-md-none">
+                    <div class="container-fluid">
+                        <div class="nk-footer-wrap gy-1 gx-4">
+                            <div class="nk-footer-links">
+                                <ul class="nav nav-sm">
+                                    <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal"
+                                            data-target="#covid-feedback">Feedback</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal"
+                                            data-target="#covid-about">About Data</a></li>
+                                </ul>
+                            </div>
+                            <div class="nk-footer-copyright"> &copy; Copyright 2020, <a href="#">Softnio</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- Modal About -->
+    <div class="modal fade" tabindex="-1" id="covid-about">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <em class="icon ni ni-cross"></em>
+                </a>
+                <div class="modal-body">
+                    <h5 class="title mb-3">About this data</h5>
+                    <h6 class="lead-text text-primary">It changes rapidly</h6>
+                    <p>This data changes rapidly, so what’s shown may be out of date. Table totals may not always
+                        represent an accurate sum. Information about reported cases is also available on the <a
+                            href="#">World Health Organization</a> & <a href="#">WorldoMeters.info</a> site.</p>
+                    <h6 class="lead-text text-primary">It doesn’t include all cases</h6>
+                    <p>Confirmed cases aren’t all cases. They only include people who tested positive. Testing rules and
+                        availability vary by country.</p>
+                    <div class="note-text">Updated: March 27, 2020 12:30 (GMT +6)</div>
+                </div>
+                <div class="modal-footer bg-light justify-content-center py-1">
+                    <div class="sub-text">Copyright by <a href="https://softnio.com">Softnio</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Feedback -->
+    <div class="modal fade" tabindex="-1" id="covid-feedback">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="justify-between gx-5 mb-3">
+                        <div>
+                            <h6 class="modal-title text-primary">What kind of feedback do you have about this tool?</h6>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-icon btn-trigger mr-n2 mt-n1" data-dismiss="modal"
+                                aria-label="Close">
+                                <em class="icon ni ni-cross"></em>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="btn-list-vr g-2">
+                        <li>
+                            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#covid-feedback-form"
+                                class="btn btn-round btn-indc btn-lighter"><em
+                                    class="icon text-primary ni ni-report"></em> <span>Report an issue</span><em
+                                    class="indc icon ni ni-chevron-right"></em></a>
+                        </li>
+                        <li>
+                            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#covid-feedback-form"
+                                class="btn btn-round btn-indc btn-lighter"><em
+                                    class="icon text-primary ni ni-bulb"></em> <span>Share an idea</span><em
+                                    class="indc icon ni ni-chevron-right"></em></a>
+                        </li>
+                        <li>
+                            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#covid-feedback-form"
+                                class="btn btn-round btn-indc btn-lighter"><em
+                                    class="icon text-primary ni ni-question-alt"></em> <span>Give a compliment</span><em
+                                    class="indc icon ni ni-chevron-right"></em></a>
+                        </li>
+                        <li>
+                            <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#covid-feedback-form"
+                                class="btn btn-round btn-indc btn-lighter"><em
+                                    class="icon text-primary ni ni-policy"></em> <span>Legal or privacy
+                                    concern</span><em class="indc icon ni ni-chevron-right"></em></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer bg-light justify-content-center py-1">
+                    <div class="sub-text">Copyright by <a href="https://softnio.com">Softnio</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Feedback Form -->
+    <div class="modal fade" tabindex="-1" id="covid-feedback-form">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="justify-between gx-5 mb-1">
+                        <div>
+                            <h6 class="modal-title text-primary">Tell us about the issue</h6>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-icon btn-trigger mr-n2 mt-n1" data-dismiss="modal"
+                                aria-label="Close">
+                                <em class="icon ni ni-cross"></em>
+                            </a>
+                        </div>
+                    </div>
+                    <form action="#">
+                        <textarea class="form-control no-resize"
+                            placeholder="Enter feedback here. To help protect your privacy, don’t include personal info."></textarea>
+                        <div class="align-center justify-between mt-3">
+                            <a href="#" class="link link-sm">Privacy Policy</a>
+                            <ul class="btn-toolbar g-1">
+                                <li><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#covid-feedback"
+                                        class="btn btn-light">Go Back</a></li>
+                                <li><a href="#" class="btn btn-primary">Send</a></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer bg-light justify-content-center py-1">
+                    <div class="sub-text">Copyright by <a href="https://softnio.com">Softnio</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Country Details -->
+    <div class="modal fade" tabindex="-1" id="covid-country-details">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <em class="icon ni ni-cross-sm"></em>
+                </a>
+                <div class="modal-body">
+                    <h5 class="modal-title mb-3">United States - Coronavirus Cases</h5>
+                    <div class="row justify-between g-gs">
+                        <div class="col-lg-6">
+                            <div class="nk-cov-data">
+                                <h6 class="lead-text text-base">Total Confirmed Cases</h6>
+                                <div class="amount">138,908</div>
+                            </div>
+                            <div class="row g-2 pt-2 pt-sm-3">
+                                <div class="col-6">
+                                    <div class="nk-cov-data">
+                                        <h6 class="overline-title-alt fw-normal">Recovered</h6>
+                                        <div class="amount amount-xs text-success">4,432 <small>5.1%</small></div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="nk-cov-data">
+                                        <h6 class="overline-title-alt fw-normal">Deaths</h6>
+                                        <div class="amount amount-xs text-danger">2,438 <small>2.59%</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="nk-cov-data">
+                                <h6 class="lead-text text-base">Currently Active Cases</h6>
+                                <div class="amount fw-normal">132,038</div>
+                            </div>
+                            <div class="row g-2 pt-2 pt-sm-3">
+                                <div class="col-sm-6">
+                                    <div class="nk-cov-data">
+                                        <h6 class="overline-title-alt fw-normal">in Mild Condition</h6>
+                                        <div class="amount amount-xs text-purple">129,080 <small>5.1%</small></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="nk-cov-data">
+                                        <h6 class="overline-title-alt fw-normal">Serious or Critical</h6>
+                                        <div class="amount amount-xs text-warning">2,948 <small>2.59%</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .row -->
+                    <h6 class="title mt-4 mt-sm-5 mb-3">Total Cases & Deaths</h6>
+                    <div class="card card-bordered">
+                        <ul class="nav nav-tabs nav-tabs-card is-medium">
+                            <li class="nav-item"><a href="#totalCase" data-toggle="tab"
+                                    class="nav-link active">Cases</a></li>
+                            <li class="nav-item"><a href="#totalDeaths" data-toggle="tab" class="nav-link">Deaths</a>
+                            </li>
+                            <li class="nav-item"><a href="#totalCompare" data-toggle="tab" class="nav-link">Compare</a>
+                            </li>
+                        </ul>
+                        <div class="card-inner">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="totalCase">
+                                    <h6 class="lead-text">Total Cases in Linear Scale</h6>
+                                    <div class="nk-cov-modal-ck">
+                                        <canvas class="covid-case-line-chart" id="totalCaseChart"></canvas>
+                                    </div>
+                                    <div class="justify-between ml-5">
+                                        <div class="chart-label small text-soft">22 Jan, 2020</div>
+                                        <div class="chart-label small text-soft">28 Mar, 2020</div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="totalDeaths">
+                                    <h6 class="lead-text">Total Deaths in Linear Scale</h6>
+                                    <div class="nk-cov-modal-ck">
+                                        <canvas class="covid-case-line-chart" id="totalDeathsChart"></canvas>
+                                    </div>
+                                    <div class="justify-between ml-5">
+                                        <div class="chart-label small text-soft">22 Jan, 2020</div>
+                                        <div class="chart-label small text-soft">28 Mar, 2020</div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="totalCompare">
+                                    <h6 class="lead-text">Total Compare in Linear Scale</h6>
+                                    <div class="nk-cov-modal-ck">
+                                        <canvas class="covid-case-line-chart" id="totalCompareChart"></canvas>
+                                    </div>
+                                    <div class="justify-between ml-5">
+                                        <div class="chart-label small text-soft">22 Jan, 2020</div>
+                                        <div class="chart-label small text-soft">28 Mar, 2020</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .card -->
+                    <h6 class="title mt-4 mt-sm-5 mb-3">Daily New Cases & Deaths</h6>
+                    <div class="card card-bordered">
+                        <ul class="nav nav-tabs nav-tabs-card is-medium">
+                            <li class="nav-item"><a href="#dailyCase" data-toggle="tab"
+                                    class="nav-link active">Cases</a></li>
+                            <li class="nav-item"><a href="#dailyDeaths" data-toggle="tab" class="nav-link">Deaths</a>
+                            </li>
+                            <li class="nav-item"><a href="#dailyCompare" data-toggle="tab" class="nav-link">Compare</a>
+                            </li>
+                        </ul>
+                        <div class="card-inner">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="dailyCase">
+                                    <h6 class="lead-text">Daily New Cases Per Day</h6>
+                                    <div class="nk-cov-modal-ck">
+                                        <canvas class="covid-case-bar-chart" id="dailyCaseDay"></canvas>
+                                    </div>
+                                    <div class="justify-between ml-5">
+                                        <div class="chart-label small text-soft">22 Jan, 2020</div>
+                                        <div class="chart-label small text-soft">28 Mar, 2020</div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="dailyDeaths">
+                                    <h6 class="lead-text">Daily New Deaths Per Day</h6>
+                                    <div class="nk-cov-modal-ck">
+                                        <canvas class="covid-case-bar-chart" id="dailyDeathsDay"></canvas>
+                                    </div>
+                                    <div class="justify-between ml-5">
+                                        <div class="chart-label small text-soft">22 Jan, 2020</div>
+                                        <div class="chart-label small text-soft">28 Mar, 2020</div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="dailyCompare">
+                                    <h6 class="lead-text">Daily New Cases Compare</h6>
+                                    <div class="nk-cov-modal-ck">
+                                        <canvas class="covid-case-bar-chart" id="dailyCompareDay"></canvas>
+                                    </div>
+                                    <div class="justify-between ml-5">
+                                        <div class="chart-label small text-soft">22 Jan, 2020</div>
+                                        <div class="chart-label small text-soft">28 Mar, 2020</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .card -->
+                </div><!-- .modal-body -->
+            </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+    </div><!-- .modal -->
+    <!-- JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyCDI6FYeL03kFq3km8lQRN46cZCZcpAQN8",
+            authDomain: "coin-depot.firebaseapp.com",
+            projectId: "coin-depot",
+            storageBucket: "coin-depot.appspot.com",
+            messagingSenderId: "830148316905",
+            appId: "1:830148316905:web:faa782416fd201bf60ea78"
+        });
+        var db = firebase.firestore();
+
+        const getFormValues = form => {
+            const formData = new FormData(form);
+            const values = {};
+            for (let key of formData.keys()) {
+                const { value, type, files } = form[key];
+                values[key] = type === 'file' ? files : ((value || value === "") ? value : formData.getAll(key));
+            }
+            return values;
+        }
+
+        document.getElementById('create-user-form').onsubmit = e => {
+            e.preventDefault();
+            const form = e.target;
+            form.classList.add('submitted');
+            const values = getFormValues(form);
+            db.collection('accounts').add(values)
+                .then(res => {
+                    form.classList.remove('submitted');
+                    form.reset();
+                })
+                .catch(err => console.log(err));
+        }
+        // accounts-table
+        function toggleAccountStatus(event) {
+            const id = event.target.id;
+            const status = event.target.innerText === 'active' ? 'inactive' : 'active';
+            db.doc(`accounts/${id}`).set({ status }, { merge: true });
+        }
+        db.collection('accounts').onSnapshot(snapshot => {
+            const tbody = document.getElementById('accounts-table');
+            tbody.innerHTML = '';
+            snapshot.docs.forEach(doc => {
+                const data = doc.data();
+                data.id = doc.id;
+                const row = `
+                    <tr id="${data.id}">
+                        <td>${data.account}</td>
+                        <td>${data.owner}</td>
+                        <td>${data.exchange}</td>
+                        <td>${data.username}</td>
+                        <td onclick="toggleAccountStatus(event)" id="${data.id}">${data.status}</td>
+                    </tr>
+                `
+                tbody.innerHTML += row;
+            })
+        })
+
+    </script>
+    <script src="./assets/js/scripts.js?ver=2.2.0"></script>
+    <script src="assets/js/libs/jqvmap.js?ver=2.2.0"></script>
+    <script src="assets/js/chart-covid.js?ver=2.2.0"></script>
+</body>
+
+</html>

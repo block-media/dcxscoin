@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="style.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+    <title>Getting Started with Kendo UI for jQuery</title>
+
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/default.mobile.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/kendo.default.mobile.min.css" />
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
+    <!--<script src="https://kendo.cdn.telerik.com/2022.1.119/js/messages/kendo.messages.fr-FR.min.js"></script>-->
+ 
+</head>
+<body>
+
+    <div id="example" class="k-content">
+      
+        <div id="gauge-container">
+            <div id="gauge"></div>
+        </div>
+        <script>
+            function createGauge(labelPosition) {
+                $("#gauge").kendoRadialGauge({
+    
+                    pointer: {
+                        value: 2810
+                    },
+    
+                    scale: {
+                        minorUnit: 5,
+                        startAngle: -30,
+                        endAngle: 210,
+                        max: 2870,
+                        min: 2760,
+                        labels: {
+                            position: labelPosition || "inside"
+                        },
+                        ranges: [{
+                            from: 2810,
+                            to: 2795,
+                            color: "#ffc700"
+                        }, {
+                            from: 2795,
+                            to: 2780,
+                            color: "#ff7a00"
+                        }, {
+                            from: 2780,
+                            to: 2760,
+                            color: "#c20000"
+                        },
+                            {
+                                from: 2810,
+                                to: 2830,
+                                color: "#00ff00"
+                            }, {
+                                from: 2830,
+                                to: 2855,
+                                color: "#00cc00"
+                            }, {
+                                from: 2855,
+                                to: 2870,
+                                color: "#009900"
+                            }
+                        ]
+                    }
+                });
+            }
+    
+            $(document).ready(function () {
+                createGauge();
+    
+                $(".box-col").bind("change", refresh);
+    
+                $(document).bind("kendo:skinChange", function (e) {
+                    createGauge();
+                });
+    
+                window.configuredRanges = $("#gauge").data("kendoRadialGauge").options.scale.ranges;
+            });
+    
+            function refresh() {
+                var gauge = $("#gauge").data("kendoRadialGauge"),
+                    showLabels = $("#labels").prop("checked"),
+                    showRanges = $("#ranges").prop("checked"),
+                    positionInputs = $("input[name='labels-position']"),
+                    labelsPosition = positionInputs.filter(":checked").val(),
+                    options = gauge.options;
+    
+                options.transitions = false;
+                options.scale.labels.visible = showLabels;
+                options.scale.labels.position = labelsPosition;
+                options.scale.ranges = showRanges ? window.configuredRanges : [];
+    
+                gauge.redraw();
+            }
+        </script>
+    
+        <style>
+            #gauge-container {
+                background: transparent url("../content/dataviz/gauge/gauge-container.png") no-repeat 50% 50%;
+                width: 100%;
+                height: 350px;
+                text-align: center;
+                margin: 0 auto 30px auto;
+            }
+    
+            #gauge {
+                width: 100%;
+                height: 100%;
+                margin: 0 auto 0;
+            }
+        </style>
+    </div>
+  
+    <div id="example">
+        <div class="demo-section k-content wide">
+            <div id="chart"></div>
+        </div>
+        <script>
+            function createChart() {
+                $("#chart").kendoChart({
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: "../content/dataviz/js/screen_resolution.json",
+                                dataType: "json"
+                            }
+                        },
+                        sort: {
+                            field: "order",
+                            dir: "asc"
+                        },
+                        group: {
+                            field: "year"
+                        }
+                    },
+                    legend: {
+                        position: "top"
+                    },
+                    title: {
+                        text: "1024x768 screen resolution trends"
+                    },
+                    seriesDefaults: {
+                        type: "donut",
+                        startAngle: 270
+                    },
+                    series: [{
+                        field: "share",
+                        categoryField: "resolution",
+                        visibleInLegendField: "visibleInLegend",
+                        padding: 10
+                    }],
+                    tooltip: {
+                        visible: true,
+                        template: "#= dataItem.resolution #: #= value #% (#= dataItem.year #)"
+                    }
+                });
+            }
+    
+            $(document).ready(createChart);
+            $(document).bind("kendo:skinChange", createChart);
+        </script>
+    </div>
+   
+    
+</body>
+</html>

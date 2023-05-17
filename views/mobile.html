@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../">
+    <meta charset="utf-8">
+    <meta name="author" content="Softnio">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@@page-discription">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <!-- Page Title  -->
+    <title>CoinDepot - Mobile</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" href="./assets/css/dashlite.css?ver=2.2.0">
+    <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=2.2.0">
+
+    <!-- KENDO StyleSheets  -->
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/default.mobile.min.css" rel="stylesheet" />
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
+    <!--<script src="https://kendo.cdn.telerik.com/2022.1.119/js/messages/kendo.messages.fr-FR.min.js"></script>-->
+    <style>
+        .__form .spinner-border {
+            display: none;
+        }
+
+        .__form.submitted button {
+            display: none;
+        }
+
+        .__form.submitted .spinner-border {
+            display: block;
+        }
+    </style>
+    <!-- KENDO StyleSheets END -->
+
+
+</head>
+<body>
+    <div id="example">
+        <div class="demo-section k-content wide">
+            <div class="demo-app" style="position:relative">
+                <div id="inbox" class="demo-view" style="height: 100%; position:absolute">
+                    <div class="title" style="padding-bottom:48px">
+                        <h3>Mail Inbox</h3>
+                    </div>
+                    <div class="inbox-content">
+                        <div class="col-xl-4">
+                            <div class="row g-gs">
+                                <div class="col-xl-12 col-lg-6">
+                                    <div class="card card-bordered card-full">
+                                        <div class="card-inner">
+                                            <div class="card-title-group mb-4">
+                                                <div class="card-title">
+                                                    <h6 class="title">Stop Loss and Take Profit </h6>
+                                                    <p>Set The SL and Tp for Potitions</p>
+                                                </div>
+                                            </div>
+                                            <div class="nk-cov-wg6">
+                                                <!-- Radial POSITION Widget BEGIN -->
+                                                <div id="example" class="k-content">
+
+                                                    <div id="gauge-container">
+                                                        <div id="gauge"></div>
+                                                    </div>
+                                                    <script>
+                                                        function createGauge(labelPosition) {
+                                                            $("#gauge").kendoRadialGauge({
+
+                                                                pointer: {
+                                                                    value: 2810
+                                                                },
+
+                                                                scale: {
+                                                                    minorUnit: 5,
+                                                                    startAngle: -30,
+                                                                    endAngle: 210,
+                                                                    max: 2870,
+                                                                    min: 2760,
+                                                                    labels: {
+                                                                        position: labelPosition || "inside"
+                                                                    },
+                                                                    ranges: [{
+                                                                        from: 2810,
+                                                                        to: 2795,
+                                                                        color: "#ffc700"
+                                                                    }, {
+                                                                        from: 2795,
+                                                                        to: 2780,
+                                                                        color: "#ff7a00"
+                                                                    }, {
+                                                                        from: 2780,
+                                                                        to: 2760,
+                                                                        color: "#c20000"
+                                                                    },
+                                                                    {
+                                                                        from: 2810,
+                                                                        to: 2830,
+                                                                        color: "#00ff00"
+                                                                    }, {
+                                                                        from: 2830,
+                                                                        to: 2855,
+                                                                        color: "#00cc00"
+                                                                    }, {
+                                                                        from: 2855,
+                                                                        to: 2870,
+                                                                        color: "#009900"
+                                                                    }
+                                                                    ]
+                                                                }
+                                                            });
+                                                        }
+
+                                                        $(document).ready(function () {
+                                                            createGauge();
+
+                                                            $(".box-col").bind("change", refresh);
+
+                                                            $(document).bind("kendo:skinChange", function (e) {
+                                                                createGauge();
+                                                            });
+
+                                                            window.configuredRanges = $("#gauge").data("kendoRadialGauge").options.scale.ranges;
+                                                        });
+
+                                                        function refresh() {
+                                                            var gauge = $("#gauge").data("kendoRadialGauge"),
+                                                                showLabels = $("#labels").prop("checked"),
+                                                                showRanges = $("#ranges").prop("checked"),
+                                                                positionInputs = $("input[name='labels-position']"),
+                                                                labelsPosition = positionInputs.filter(":checked").val(),
+                                                                options = gauge.options;
+
+                                                            options.transitions = false;
+                                                            options.scale.labels.visible = showLabels;
+                                                            options.scale.labels.position = labelsPosition;
+                                                            options.scale.ranges = showRanges ? window.configuredRanges : [];
+
+                                                            gauge.redraw();
+                                                        }
+                                                    </script>
+
+                                                    <style>
+                                                        #gauge-container {
+                                                            background: transparent url("../content/dataviz/gauge/gauge-container.png") no-repeat 50% 50%;
+                                                            width: 100%;
+                                                            height: 250px;
+                                                            text-align: center;
+                                                            margin: 0 auto 30px auto;
+                                                        }
+
+                                                        #gauge {
+                                                            width: 100%;
+                                                            height: 100%;
+                                                            margin: 0 auto 0;
+                                                        }
+                                                    </style>
+                                                   
+                                                    <div class="text-center mt-3 mb-3 crypt-down">
+                                                        <p> <div class="input-group mb-3">
+                                                            <div class="input-group-prepend"> <span
+                                                                    class="input-group-text">TP/SL</span> </div>
+                                                            <input type="text" id="TP" name="fname">
+                                                            <input type="text" id="SL" name="fname">
+                                                            <button class="btn btn-primary btn-sm">Update</button>
+                                                            <div class="spinner-border3" role="status">
+                                                                <span class="sr-only"></span>
+                                                            </div>
+                                                        </div></p>
+                                                        <h4 ></h4>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Radial POSITION Widget END -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-xl-12 col-lg-6">
+                                    <div class="card card-bordered card-full">
+                                        <div class="card-inner">
+                                            <div class="card-title-group mb-4">
+                                                <div class="card-title">
+                                                    <h6 class="title">Trade Box - BYBIT</h6>
+                                                    <p>Create Long/Short order in The Bybit Exchange</p>
+                                                </div>
+                                            </div>
+                                            <form class="card-tools __form" id="set-leverage-form">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend"> <span
+                                                            class="input-group-text">Leverage</span> </div>
+                                                    <select class="form-control" name="leverage">
+                                                        <span>your Current Leverage is: 10X</span>
+                                                        <option selected value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                        <option value="30">30</option>
+
+                                                    </select>
+                                                    <select class="form-control" name="symbol"
+                                                        id="default-06">
+                                                        <option>Select Contract</option>
+                                                        <option selected value="BTCUSDT">BTCUSDT</option>
+                                                        <option value="ETHUSDT">ETHUSDT</option>
+                                                    </select>
+                                                    <button class="btn btn-warning btn-sm">Set
+                                                        Leverage</button>
+                                                    <div class="spinner-border" role="status">
+                                                        <span class="sr-only"></span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <form class="nk-cov-wg6 __form" id="place-order">
+                                                <div class="crypt-sell">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend"> <span
+                                                                class="input-group-text">Symbol</span>
+                                                        </div>
+                                                        <select name="symbol" class="form-control"
+                                                            id="default-06">
+                                                            <option selected value="BTCUSDT">BTCUSDT
+                                                            </option>
+                                                            <option value="ETHUSDT">ETHUSDT</option>
+                                                        </select>
+                                                        <div class="input-group-append"> <span
+                                                                class="input-group-text">USDT</span> </div>
+                                                    </div>
+                                                    <!-- <div class="input-group mb-3">
+                                                        <div class="input-group-prepend"> <span
+                                                                class="input-group-text">Price</span> </div>
+                                                        <input type="text" name="price" class="form-control"
+                                                            placeholder="0.02323476" readonly>
+                                                        <div class="input-group-append"> <span
+                                                                class="input-group-text">USDT</span> </div>
+                                                    </div> -->
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend"> <span
+                                                                class="input-group-text">Order</span> </div>
+                                                        <select name="order_type" class="form-control"
+                                                            id="default-06">
+                                                            <option selected value="Market">Market</option>
+                                                            <option value="Limit">Limit</option>
+                                                        </select>
+                                                        <div class="input-group-append"> <span
+                                                                class="input-group-text">Type</span> </div>
+                                                    </div>
+                                                    <!-- <div class="input-group mb-3">
+                                                        <div class="input-group-prepend"> <span
+                                                                class="input-group-text">Qty</span> </div>
+                                                        <input name="qty" type="text" class="form-control"
+                                                            readonly>
+                                                        <div class="input-group-append"> <span
+                                                                class="input-group-text">USDT</span> </div>
+                                                    </div> -->
+                                                    <!-- <div>
+                                                        <p>Fee: <span class="fright">100%x0.2=0.02</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="text-center mt-3 mb-3 crypt-down">
+                                                        <p>Your Currently Balance is:</p>
+                                                        <h4> 1,000.00 USDT</h4>
+                                                    </div> -->
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend"> <span
+                                                                class="input-group-text">Side</span>
+                                                        </div>
+                                                        <ul
+                                                            class="custom-control-group g-3 align-center flex-wrap">
+                                                            <li>
+                                                                <div class="custom-control custom-radio">
+                                                                    <p> </p>
+                                                                    <input checked value="Sell" type="radio"
+                                                                        class="custom-control-input"
+                                                                        name="side" id="Short">
+                                                                    <label class="custom-control-label"
+                                                                        for="Short">Short</label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="custom-control custom-radio">
+                                                                    <p> </p>
+                                                                    <input value="Buy" type="radio"
+                                                                        class="custom-control-input"
+                                                                        name="side" id="Long">
+                                                                    <label class="custom-control-label"
+                                                                        for="Long">Long</label>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="input-group my-3">
+                                                            <div class="input-group-prepend"> <span
+                                                                    class="input-group-text">Take</span>
+                                                            </div>
+                                                            <input name="take_profit" type="text"
+                                                                class="form-control" id="take_profit">
+                                                            <div class="input-group-append"> <span
+                                                                    class="input-group-text">Profit</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend"> <span
+                                                                    class="input-group-text">Stop</span>
+                                                            </div>
+                                                            <input type="text" class="form-control"
+                                                                id="stop_loss" name="stop_loss">
+                                                            <div class="input-group-append"> <span
+                                                                    class="input-group-text">Loss</span>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <p>Your Currently TP is <span
+                                                                    class="fright">$2,175.00
+                                                                </span><span class="fright"> Your Currently
+                                                                    SL is:
+                                                                    $2,175.00: </span></p>
+
+                                                        </div>
+                                                        <div class="spinner-border" role="status">
+                                                            <span class="sr-only"></span>
+                                                        </div>
+                                                        <button class="btn mt-3 btn-xl btn-success"
+                                                            style="width: 100%">Place Order</button>
+                                                    </div>
+                                                </div>
+
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-xl-12 col-lg-6">
+                                <div class="card card-bordered card-full">
+                                    <div class="card-inner">
+                                        <div class="card-title-group mb-4">
+                                            <div class="card-title">
+                                                <h6 class="title">Panic BOX</h6>
+                                                <p>Close all Oder at market price.</p>
+                                            </div>
+                                        </div>
+                                        <div class="nk-cov-wg6">
+                                            <div class="crypt-sell">
+                                                <div>
+                                                    <table style="width: 100%" ; text-align: center>
+                                                        <tr>
+                                                            <td> <a href="#" class="btn btn-xl btn-danger"
+                                                                    style="width: 100%">Close Market Price</a></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div>
+                </div>
+                <div id="calendar" class="demo-view" style="display:none">
+                    <div id="calendar-content">
+                        <div class="title" style="padding-bottom:48px">
+                            <h3>Calendar</h3>
+                        </div>
+                        <div id="calendar-days-content">
+                            <div class="calendar-day">
+                                <div class="calendar-day-h">
+                                    11/5 Monday
+                                </div>
+                                <div class="calendar-entry" style="margin-bottom:30px">
+                                    <span class="light-text">
+                                        16:00
+                                    </span>
+                                    <span style="border-left:2px solid #FF6358;height:23px;margin-left: 20px;margin-right: 12px;"></span>
+                                    <span class="calendar-event">
+                                        Job interview for internal position
+                                    </span>
+                                </div>
+                                <div class="calendar-entry">
+                                    <span class="light-text">
+                                        21:00
+                                    </span>
+                                    <span style="border-left:2px solid #28B4C8;height:23px;margin-left: 20px; margin-right: 12px;"></span>
+                                    <span class="calendar-event">
+                                        Martha Birthday
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="calendar-day">
+                                <div class="calendar-day-h">
+                                    Tomorrow
+                                </div>
+                                <div class="light-text" style="margin-left:74px; margin-top:35px">
+                                    No upcoming events
+                                </div>
+                            </div>
+                        </div>
+                    </div>              
+                </div>
+                <div id="profile" class="demo-view" style="display:none; position:absolute">
+                    <div class="title">
+                        <h3>My Profile</h3>
+                    </div>
+                    <div id="profile-content">
+                        <div id="avatar">
+                            <img src="../content/web/avatar.png" width="128" height="128" />
+                        </div>
+                        <div class="username">
+                            myusername@mail.com
+                        </div>
+                        <hr style="margin-top:40px; margin-bottom:15px">
+                        <div class="profile-cal">
+                            <div style="margin-bottom:20px">Calendars</div>
+    
+                            <div class="profile-cal-entry">
+                                <div class="entry-color" style="background-color:#FF6358">
+                                </div>
+                                <div class="entry-title">
+                                    Work
+                                </div>
+                                <div class="entry-icon">
+                                    <span class="k-icon k-i-saturation"></span>
+                                </div>
+                            </div>
+    
+                            <div class="profile-cal-entry">
+                                <div class="entry-color" style="background-color:#28B4C8">
+                                </div>
+                                <div class="entry-title">
+                                    Family
+                                </div>
+                                <div class="entry-icon">
+                                    <span class="k-icon k-i-saturation"></span>
+                                </div>
+                            </div>
+    
+    
+                            <div class="profile-cal-entry">
+                                <div class="entry-color" style="background-color:#FFC000">
+                                </div>
+                                <div class="entry-title">
+                                    Birthdays
+                                </div>
+                                <div class="entry-icon">
+                                    <span class="k-icon k-i-saturation"></span>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+    
+    
+                </div>
+                <nav id="bottomNavigation" style="bottom: 0; "></nav>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                var itemTemplate = '<span class="k-bottom-nav-item-icon k-icon k-i-email"></span><span class="k-bottom-nav-item-text">Inbox</span><span id="badge-inbox"></span>'
+                $("#bottomNavigation").kendoBottomNavigation({
+                    positionMode: "bottom",
+                    items: [
+                        { text: "Inbox", template: itemTemplate, data: { view: "inbox" }, icon: "email", selected: true },
+                        { text: "Calendar", data: { view: "calendar" }, icon: "calendar-date" },
+                        { text: "Profile", data: { view: "profile" }, icon: "user" }
+                    ],
+                    select: function (e) {
+                        var id = e.data.view
+                        $(".demo-view").hide();
+                        $("#" + id).show();
+                    }
+                });
+    
+                $('#badge-inbox').kendoBadge({
+                    themeColor: 'info',
+                    shape: 'circle',
+                    position: "inside",
+                    align: "top start",
+                    text: "1"
+                });
+            })
+        </script>
+    </div>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+        @media screen and (min-width:0\0) {
+            #badge-inbox {
+                top: 4px !important;
+                left: 65px !important;
+            }
+    
+            .names-ab-wrapper {
+                min-width: 30px;
+            }
+        }
+        #badge-inbox {
+            top: 2px;
+            left: 55px;
+        }
+    
+        .demo-app {
+            margin: auto;
+            width: 382px;
+            height: 1024px;
+            background: #FFFFFF;
+            box-shadow: 0px 10px 20px #00000016;
+            border-radius: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+        }
+    
+        .demo-app .title {
+            width: 100%;
+        }
+    
+        .time-heading {
+            font-weight: 500;
+            color: black;
+            margin-bottom: 25px;
+        }
+    
+        #inbox, #calendar, #profile {
+            background: #F9F9F9;
+            height: inherit;
+            width: inherit;
+            border-radius: 30px;
+            border: 10px solid white;
+            box-sizing: border-box;
+        }
+    
+        .p-main {
+            letter-spacing: 0.14px;
+            color: #656565;
+        }
+        .content-wrap:first-of-type > .p-main {
+            font-weight: bold;
+        }
+    
+        .demo-app h3 {
+            padding-top: 24px;
+            text-align: center;
+            font-size: 28px;
+            letter-spacing: 0.28px;
+            color: #3D57D8;
+            font-weight: 400;
+        }
+    
+        .inbox-content {
+            padding-left: 17px;
+            padding-right: 17px;
+        }
+    
+        .content-wrap {
+            display: inline-flex;
+        }
+        .names-ab-wrapper {
+            border-radius: 20px;
+            width: 30px;
+            height: 30px;
+            margin-right: 25px;
+        }
+    
+        .names-ab {
+            width: inherit;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            letter-spacing: 0.14px;
+            color: #FFFFFF;
+            font-weight: 300;
+        }
+    
+        .demo-app hr {
+            border: 0.1px solid lightgray;
+        }
+    
+        #calendar-content {
+            position: absolute;
+            width: 100%;
+            max-width: 365px;
+        }
+        #calendar-days-content {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    
+        .calendar-day-h {
+            background: #EDEDED;
+            font-weight: 600;
+            color: black;
+            padding: 5px;
+            margin-bottom: 17px;
+            margin-top: 30px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+    
+        .calendar-entry {
+            display: flex;
+            align-items: center;
+        }
+    
+        .light-text {
+           color: #BABABA;
+        }
+    
+        #avatar {
+            justify-content: center;
+            display: flex;
+        }
+    
+        .username {
+            font-weight: 600;
+            color: black;
+            text-align: center;
+            padding-top: 25px;
+        }
+    
+        #profile-content {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    
+        .profile-cal {
+          color:  #656565;
+          font-weight: 600;
+        }
+    
+         .profile-cal-entry {
+             display: flex;
+         }
+    
+        .entry-title {
+            font-size: 12px;
+            color: black;
+            font-weight: 500;
+            padding-bottom: 22px;
+        }
+    
+        .entry-color {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            margin-right: 14px;
+        }
+    
+        .entry-icon {
+            color: black;
+            margin-left: auto;
+        }
+    
+        .demo-app .k-bottom-nav-flat {
+            margin-left: 10px;
+            margin-bottom: 10px;
+            height: 70px;
+            max-width: 362px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+    </style>
+
+</body>
+</html>

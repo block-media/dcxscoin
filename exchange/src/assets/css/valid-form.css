@@ -1,0 +1,17 @@
+.__form .spinner-border {
+    display: none;
+}
+
+.__form.submitted button {
+    display: none;
+}
+
+.__form.submitted .spinner-border {
+    display: block;
+}
+.__form .error-message {
+    color: red;
+}
+.__form .error-message:empty, .__form.submitted .error-message {
+    display: none;
+} 
